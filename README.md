@@ -1,3 +1,15 @@
+### Fork of mongeez project
+
+Release 0.9.5
+
+```xml
+<dependency>
+  <groupId>com.github.volyihin</groupId>
+  <artifactId>mongeez</artifactId>
+  <version>0.9.5</version>
+</dependency>
+```
+
 ### What is mongeez?
 
 mongeez allows you to manage changes of your mongo documents and propagate these changes in sync with your code changes when you perform deployments.
