@@ -7,14 +7,14 @@
         <version>7</version>
     </parent>
     
-    <groupId>org.mongeez</groupId>
+    <groupId>com.github.volyihin</groupId>
     <artifactId>mongeez</artifactId>
-    <version>0.9.5-SNAPSHOT</version>
+    <version>0.9.5</version>
     <packaging>jar</packaging>
 
     <name>Mongeez</name>
     <description>An opensource project for mongodb change management</description>
-    <url>http://github.com/secondmarket/mongeez</url>
+    <url>http://github.com/volyihin/mongeez</url>
 
     <licenses>
         <license>
@@ -25,9 +25,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git@github.com:secondmarket/mongeez.git</connection>
-        <developerConnection>scm:git:git@github.com:secondmarket/mongeez.git</developerConnection>
-        <url>git@github.com:secondmarket/mongeez.git</url>
+        <connection>scm:git:git@github.com:volyihin/mongeez.git</connection>
+        <developerConnection>scm:git:git@github.com:volyihin/mongeez.git</developerConnection>
+        <url>git@github.com:volyihin/mongeez.git</url>
     </scm>
 
     <developers>
@@ -46,6 +46,11 @@
             <name>David M. Carr</name>
             <email>david@carrclan.us</email>
             <timezone>-5</timezone>
+        </developer>
+        <developer>
+            <id>volyihin</id>
+            <name>Dmitrii Volylhin</name>
+            <email>volyihin@gmail.com</email>
         </developer>
     </developers>
 
@@ -118,6 +123,69 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+             <plugin>
+                  <artifactId>maven-assembly-plugin</artifactId>
+                  <version>2.3</version>
+                  <configuration>
+                      <descriptorRefs>
+                          <descriptorRef>jar-with-dependencies</descriptorRef>
+                      </descriptorRefs>
+                  </configuration>
+                  <executions>
+                      <execution>
+                          <phase>package</phase>
+                          <goals>
+                              <goal>single</goal>
+                          </goals>
+                      </execution>
+                  </executions>
+              </plugin>
+              <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-source-plugin</artifactId>
+                  <version>2.1.2</version>
+                  <executions>
+                      <execution>
+                          <id>attach-sources</id>
+                          <goals>
+                              <goal>jar</goal>
+                          </goals>
+                      </execution>
+                  </executions>
+              </plugin>
+              <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-javadoc-plugin</artifactId>
+                  <configuration>
+                      <quiet>true</quiet>
+                      <nonavbar>true</nonavbar>
+                      <notree>true</notree>
+                      <nocomment>true</nocomment>
+                      <nohelp>true</nohelp>
+
+                  </configuration>
+                  <executions>
+                      <execution>
+                          <id>attach-javadocs</id>
+                          <goals>
+                              <goal>jar</goal>
+                          </goals>
+                      </execution>
+                  </executions>
+              </plugin>
+              <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-gpg-plugin</artifactId>
+                  <executions>
+                      <execution>
+                          <id>sign-artifacts</id>
+                          <phase>verify</phase>
+                          <goals>
+                              <goal>sign</goal>
+                          </goals>
+                      </execution>
+                  </executions>
+              </plugin>
         </plugins>
     </build>
 </project>
